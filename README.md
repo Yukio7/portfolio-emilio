@@ -38,6 +38,23 @@ Les images sont actuellement des placeholders (`picsum.photos`). Pour les vrais 
 
 Formats recommandés : `.webp` ou `.jpg` en 1400×1750 pour les vignettes de projets, 1200×1600 pour le portrait.
 
+### Vidéos animées (survol)
+
+Les cartes « Univers » et les vignettes de projets jouent un extrait muet en boucle au survol — et en lecture automatique dès l'entrée en vue sur mobile. Tant qu'aucun fichier n'est trouvé, l'image de secours joue un lent zoom, donc rien ne casse.
+
+| Emplacement | Chemin attendu |
+| --- | --- |
+| Univers | `public/videos/univers/evenementiel.mp4`, `clip.mp4`, `documentaire.mp4` |
+| Projets | `public/videos/projets/<slug>.mp4` (le slug est défini dans `projects`) |
+
+Encodage conseillé : 4 à 8 secondes, H.264, 720p suffit, **sans piste audio**, 1 à 3 Mo par fichier. Exemple avec ffmpeg :
+
+```bash
+ffmpeg -i source.mov -t 6 -an -vf "scale=-2:720" -c:v libx264 -crf 26 -preset slow -movflags +faststart sortie.mp4
+```
+
+Pour retirer une vidéo d'un projet, supprimer simplement sa clé `preview` dans `src/data/content.ts`.
+
 ## Formulaire de contact
 
 La route [src/app/api/contact/route.ts](src/app/api/contact/route.ts) envoie les messages via [Resend](https://resend.com).

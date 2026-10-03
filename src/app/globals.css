@@ -118,6 +118,15 @@
   }
 }
 
+@keyframes ken-burns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(0, -2%, 0);
+  }
+}
+
 .animate-marquee {
   animation: marquee-x var(--marquee-duration, 30s) linear infinite;
 }
@@ -126,9 +135,14 @@
   animation: spin-slow 14s linear infinite;
 }
 
+.animate-ken-burns {
+  animation: ken-burns 16s ease-in-out infinite alternate;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .animate-ken-burns {
     animation: none;
   }
 }

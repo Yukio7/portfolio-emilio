@@ -94,6 +94,8 @@ export type Project = {
   role: string;
   description: string;
   cover: string;
+  /** Extrait muet en boucle joué au survol. Dossier /public/videos/. */
+  preview?: string;
   /** ID YouTube ou Vimeo si le projet est visionnable en ligne. */
   youtubeId?: string;
   href?: string;
@@ -109,6 +111,7 @@ export const projects: Project[] = [
     description:
       "Un court métrage nocturne tourné en une seule nuit, en lumière disponible, sur le thème de l'attente.",
     cover: "https://picsum.photos/seed/emilio-p1/1400/1750",
+    preview: "/videos/projets/nuit-blanche.mp4",
   },
   {
     slug: "festival-live",
@@ -119,6 +122,7 @@ export const projects: Project[] = [
     description:
       "Captation multi-caméras d'un festival local, aftermovie livré en 48h et formats courts pour les réseaux.",
     cover: "https://picsum.photos/seed/emilio-p2/1400/1750",
+    preview: "/videos/projets/festival-live.mp4",
   },
   {
     slug: "atelier-artisan",
@@ -129,6 +133,7 @@ export const projects: Project[] = [
     description:
       "Portrait documentaire d'un artisan : le geste, la matière, le temps long filmé en plans serrés.",
     cover: "https://picsum.photos/seed/emilio-p3/1400/1750",
+    preview: "/videos/projets/atelier-artisan.mp4",
   },
   {
     slug: "clip-echo",
@@ -139,6 +144,7 @@ export const projects: Project[] = [
     description:
       "Clip tourné en décor naturel, étalonnage contrasté et montage calé au rythme du morceau.",
     cover: "https://picsum.photos/seed/emilio-p4/1400/1750",
+    preview: "/videos/projets/clip-echo.mp4",
   },
   {
     slug: "marque-corporate",
@@ -149,6 +155,7 @@ export const projects: Project[] = [
     description:
       "Film de marque pour une entreprise locale : interviews, plans d'illustration et habillage graphique.",
     cover: "https://picsum.photos/seed/emilio-p5/1400/1750",
+    preview: "/videos/projets/marque-corporate.mp4",
   },
   {
     slug: "sport-session",
@@ -159,8 +166,42 @@ export const projects: Project[] = [
     description:
       "Film sportif en extérieur, ralentis, suivi au gimbal et sound design immersif.",
     cover: "https://picsum.photos/seed/emilio-p6/1400/1750",
+    preview: "/videos/projets/sport-session.mp4",
   },
 ];
+
+/**
+ * Trois univers présentés en vidéos muettes qui tournent en boucle.
+ * Déposer des extraits de 4 à 8 secondes dans /public/videos/univers/.
+ */
+export const showcase = {
+  overline: "Univers",
+  statement: [
+    "Au plus proche du mouvement,",
+    "là où l'image cesse d'être une vue",
+    "pour devenir un ressenti.",
+  ],
+  items: [
+    {
+      title: "Événementiel",
+      meta: "Captation · Aftermovie",
+      poster: "https://picsum.photos/seed/emilio-univers-event/900/1200",
+      video: "/videos/univers/evenementiel.mp4",
+    },
+    {
+      title: "Clip & Musique",
+      meta: "Réalisation · Étalonnage",
+      poster: "https://picsum.photos/seed/emilio-univers-clip/900/1200",
+      video: "/videos/univers/clip.mp4",
+    },
+    {
+      title: "Documentaire",
+      meta: "Portrait · Immersion",
+      poster: "https://picsum.photos/seed/emilio-univers-doc/900/1200",
+      video: "/videos/univers/documentaire.mp4",
+    },
+  ],
+};
 
 export const showreel = {
   overline: "Showreel",
@@ -169,7 +210,7 @@ export const showreel = {
   youtubeId: "",
   poster: "https://picsum.photos/seed/emilio-showreel/1920/1080",
   caption:
-    "Au plus près du mouvement, là où l'image cesse d'être une vue pour devenir un ressenti.",
+    "Une sélection de plans et de séquences tournés ces deux dernières années, montés en un seul souffle.",
 };
 
 export const testimonials = [
